@@ -6,7 +6,7 @@ let loc = location
 let change = Symbol()
 
 /**
- * Changed event
+ * Event changes a path
  */
 let routerChanged = Symbol()
 
@@ -16,7 +16,7 @@ let routerChanged = Symbol()
 let routerNavigate = Symbol()
 
 /**
- * Router routerKey on store
+ * Router key on store
  */
 let routerKey = Symbol('route')
 
@@ -72,10 +72,7 @@ function createRouter (routes = []) {
         !event.altKey
       ) {
         event.preventDefault()
-        store.dispatch(
-          routerNavigate,
-          link.href.slice(loc.origin.length)
-        )
+        store.dispatch(routerNavigate, link.href.slice(loc.origin.length))
       }
     })
 
